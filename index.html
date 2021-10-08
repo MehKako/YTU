@@ -1,0 +1,65 @@
+<div id="714899639724945823" align="left" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><input onkeypress="return searchKeyPress(event);" name="getId" type="text" id="getId">
+<button id="btnUnblock" onclick="createLink()">Unblock</button>
+<br>
+<br>
+<br>
+<br>
+<p>
+<iframe id="player" height="480" width="720" src(unknown)="" allowfullscreen=true>
+#document
+</iframe>
+</p>
+
+<script>
+
+
+function searchKeyPress(e)
+{
+    e = e || window.event;
+    if (e.keyCode == 13)
+    {
+        document.getElementById('btnUnblock').click();
+        return false;
+    }
+    return true;
+}
+function createLink() {
+var theId = document.getElementById('getId').value;
+var theOtherId = document.getElementById('getId').value;
+var YouTube = "youtube";
+var YouTube2 = "https://youtu.be/";
+var YouTube3 = "http://youtu.be/";
+var YouTube4 = "youtu.be/";
+if (theId.indexOf(YouTube) >= 0) {
+var string = theId.split('=');
+theId = string[1];
+}
+if (theId.indexOf(YouTube2) >= 0) {
+var sString = theId.split('/');
+theId = sString[3];
+}
+if (theId.indexOf(YouTube3) >= 0) {
+var ssString = theId.split('/');
+theId = ssString[3];
+}
+if (theId.indexOf(YouTube4) >= 0) {
+var sssString = theId.split('/');
+theId = sssString[3];
+}
+var newId = theId.match(/.{1,11}/g);
+var otherId = theOtherId.split('?');
+var otherPartId = "?" + otherId[1];
+for(i = 2; i<otherId.length; i++){
+  otherPartId += '?';
+  otherPartId += otherId[i];
+}
+otherPartId = otherPartId.replace(/t/g, 'start');
+var customLink = 'https://www.youtube-nocookie.com/embed/' + newId[0] + otherPartId + '&autoplay=1';
+document.getElementById("player").src = "" + customLink;
+document.getElementById("directLink").href = "" + customLink;
+}
+
+ 
+</script>
+
+</div>
